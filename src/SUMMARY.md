@@ -3,6 +3,7 @@
 - [高性能网络](./high_performance_network/network.md)
   - [tcpdump architecture](./high_performance_network/tcpdump-architecture.md)
   - [erdma](./high_performance_network/erdma.md)
+  - [lldp-tool](./high_performance_network/lldp-tool.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
