@@ -15,3 +15,5 @@
 - [web3](./web3/web3.md)
 - [监控](./monitor/monitor.md)
   - [grafana](./monitor/grafana.md)
+- [算法](./algorithm/main.md)
+  - [线段树](./algorithm/线段树.md)
