@@ -2,3 +2,7 @@
 title = "Panda Notes"
 authors = ["Panda Jiang"]
 language = "cn"
+
+
+[output.html]
+mathjax-support = true
