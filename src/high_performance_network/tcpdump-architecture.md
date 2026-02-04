@@ -384,6 +384,28 @@ setsockopt(syscall) -> __sys_setsockopt -> do_sock_setsockopt -> sock_setsockopt
     }
     ```
 
+- *** 对于内核函数，这种回调常常会让人觉得找不到callstack，我们可以利用 eBpf机制 来轻松的得到调用栈。 ***
+
+对于这次情况，就可以通过  `bpftrace -e 'kprobe:tpacket_rcv  {  print(kstack); }'` 来得出调用栈帧:
+```sh
+[root@localhost ~]# bpftrace -e 'kprobe:tpacket_rcv  {  print(kstack); }'
+Attaching 1 probe...
+
+        tpacket_rcv+1
+        __netif_receive_skb_core+1800
+        __netif_receive_skb_list_core+319
+        __netif_receive_skb_list+251
+        netif_receive_skb_list_internal+254
+        napi_complete_done+111
+        igb_poll+99
+        __napi_poll+39
+        net_rx_action+563
+        __do_softirq+198
+        __irq_exit_rcu+161
+        common_interrupt+67
+        asm_common_interrupt+34
+# 另外启动一个shell，运行tcpdump，正常这个函数不会被调用。
+```
 
 - kernel jit compiler
   从 __get_filter 开始，一路调用到 bpf_jit_compile，这个后面有需要再深入研究吧。
