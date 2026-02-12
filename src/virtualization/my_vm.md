@@ -10,11 +10,13 @@
 cargo run -- ./2048.obj
 ```
 
+![2048](./images/2048.png)
+
 ## LC-3 架构
 
 当我们研究一个新的VM时，`内存模型，指令集` 这些指标是我们需要关注的。
 
-- 内存: 128KB 的内存
+- 内存: 地址范围 128K, 位宽 16bit
 - Cpu
   - 寄存器: 8个16位的通用寄存器(R0-R7)，1个PC，一个FLAG寄存器
   - opCode:
@@ -46,13 +48,16 @@ cargo run -- ./2048.obj
 
 ```rust
 
-pub struct AddressSpace {
-    // @todo
+pub trait AddessSpace: Send {
+    fn write(&self, addr: u16, value: u16);
+    fn read(&self, addr: u16) -> u16;
 }
-pub struct Vm {
-    pub addr: AddressSpace,
+
+pub struct Vm<A: AddessSpace> {
     pub cpu: Cpu,
+    pub addess_space: A,
 }
+
 
 use bitflags::bitflags;
 
@@ -93,18 +98,23 @@ HELLO_STR .STRINGZ "Hello World!"  ; store this string here in the program
 按照 [1] 中 A.3 The Instruction Set 来实现
 
 opcode遵循下面的规则,具体的还是需要 case by case的分析
-....   ............
-opcode further information
+
+```shell
+....     ............
+
+opcode   further_information
+```
 
 #### 直接翻译
 
 简单的来说，就是读取一个 u16 字节，然后获取opcode，根据这个 opcode 进行翻译。
 举个例子: 
 
-`ADD DR,SR1,SR2` 翻译为机器码
-
+`ADD DR,SR1,SR2` 对应的机器码为
+```shell
 0001 ... ... 0 00 ...
      DR  SR1      SR2
+```
 
 ```rust
 impl Cpu {
@@ -124,7 +134,7 @@ impl Cpu {
 }
 
 ```
-
+将上面提到的指令，全部翻译完，就可以了。
 
 #### tcg?
 
@@ -140,7 +150,57 @@ impl Cpu {
 
 LC3 从 0x180～0x1ff 分配给了外部中断，不过目前只有 keyboard 中断。待实现。
 
-### 终端处理
+
+### 内存读写
+
+简单的来说，就是实现AddessSpace trait。
+```rust
+
+impl AddessSpace for Lc3AddrSpace {
+    fn read(&self, addr: u16) -> u16 {
+        // let addr = addr << 1;
+        // println!("read addr: {addr:x}");
+        let res = match addr {
+            Self::InterruptVectorMax..Self::RamMax => {
+                let ram = self.mem.borrow();
+                ram[addr as usize]
+            }
+            Self::M_KBSR => {
+                // println!("read kbsr");
+                self.check_keyboard();
+                let ram = self.mem.borrow();
+                ram[addr as usize]
+            }
+            Self::MR_KBDR => {
+                self.write(Self::M_KBSR, 0);
+                let ram = self.mem.borrow();
+                ram[addr as usize]
+            }
+            _ => todo!("addr {addr:x} read!"),
+        };
+        // println!("read addr: {addr:x} ,value {res:x}");
+        res
+    }
+    fn write(&self, addr: u16, value: u16) {
+        // let addr = addr << 1;
+        // println!("write addr: {addr:x}, value {value:x}");
+        match addr {
+            Self::InterruptVectorMax..Self::RamMax | Self::M_KBSR | Self::MR_KBDR => {
+                let mut ram = self.mem.borrow_mut();
+                ram[addr as usize] = value;
+            }
+            _ => todo!("addr {addr:x} write!"),
+        }
+    }
+}
+
+```
+
+需要注意的是，lc3有两个特殊的MMIO寄存器，地址分别是 MR_KBSR(0xfe00), MR_KBDR(0xfe02)。
+
+前者用于表示当前键盘是否有输入，如果有，那么最高位为1，否则为0。
+
+后者用于表示当前键盘的输入值，只有当 MR_KBSR 的最高位为1时才有效果。读取这个寄存器会将 MR_KBSR 的寄存器最高位清0。
 
 ## 参考文档
 1. [lc3_isa](https://www.jmeiners.com/lc3-vm/supplies/lc3-isa.pdf)
