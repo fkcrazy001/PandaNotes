@@ -6,7 +6,7 @@
   - [ebpf gateway](./high_performance_network/ebpf_gateway.md)
   - [cilium](./high_performance_network/cilium.md)
   - [dpdk router](./high_performance_network/dpdk_router.md)
-  - [rrdma](./high_peformance/rrdma.md)
+  - [rrdma](./high_performance_network/rrdma.md)
 
 - [kernel](kernel/dive_into_kernel.md)
 
