@@ -1,5 +1,9 @@
 # Summary
 - [about me](./about_me.md)
+
+- [ysyx](./ysyx/ysyx.md)
+  - [预学习](./ysyx/预学习-F.md)
+
 - [高性能网络](./high_performance_network/network.md)
   - [tcpdump architecture](./high_performance_network/tcpdump-architecture.md)
   - [lldp-tool](./high_performance_network/lldp-tool.md)
@@ -7,8 +11,10 @@
   - [cilium](./high_performance_network/cilium.md)
   - [dpdk router](./high_performance_network/dpdk_router.md)
   - [rrdma](./high_performance_network/rrdma.md)
+  - [rdma](./high_performance_network/rdma.md)
 
 - [kernel](kernel/dive_into_kernel.md)
+  - [rgdb](kernel/r-gdb.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)

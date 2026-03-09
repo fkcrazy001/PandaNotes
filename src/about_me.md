@@ -8,11 +8,7 @@ Graduated from [ZheJiang University](https://www.zju.edu.cn/) in 2020 as a Full-
 Software engineer with 5 years+ working experience including
   - High-Performance and Virtualized Network Development in Cloud Computing; Full-stack development in k8s cni
   - Industrial embedded software development on microprocessors Like Arm-M like soc
-
-Kernel And Qemu enthusiast:
-  - [A Tiny kernel pure in C and asm](https://github.com/fkcrazy001/jos)
-
-
+  - Kernel And Qemu enthusiast
 
 ### contact me
 
