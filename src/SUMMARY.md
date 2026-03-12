@@ -15,6 +15,7 @@
 
 - [kernel](kernel/dive_into_kernel.md)
   - [rgdb](kernel/r-gdb.md)
+  - [syscall](kernel/syscall.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
@@ -38,3 +39,4 @@
   - [线段树](./algorithm/线段树.md)
   - [Floyd 算法](./algorithm/Floyd算法.md)
   - [dijkstra算法](./algorithm/dijkstra.md)
+  - [DSU & kruskal](./algorithm/DSU.md)
