@@ -58,3 +58,92 @@ the tracee is delivered or not.  (addr is ignored.)
 紧接着上面的子进程被挂起之后，发送 cont 会让子进程被唤醒， 
 并且唤醒理由放在 exit_code 中(`ptrace_resume` 函数中)，会被翻译为signal继续去执行子进程的信号处理流程。
 
+### PTRACE_SINGLESTEP
+
+单步执行下一条指令。对于 `si` 这种“指令级步进”，底层就是循环：
+1. `ptrace(PTRACE_SINGLESTEP, pid, 0, sig)`
+2. `waitpid(pid, ...)` 等待 tracee 因为单步陷入而停止（通常是 `SIGTRAP`）
+
+内核侧主要路径（不同版本/架构细节会有差异）：
+```c
+kernel/ptrace.c: SYSCALL_DEFINE4(ptrace, ...) => ptrace_request(...)
+  case PTRACE_SINGLESTEP:
+    ptrace_resume(child, request, data);
+      -> user_enable_single_step(child);
+      -> wake_up_state(child, __TASK_TRACED/ TASK_RUNNING ...);
+```
+`user_enable_single_step` 是架构相关的入口：x86_64 通常依赖 TF/trap flag，arm64 走对应的单步机制。
+
+### PTRACE_GETREGS / PTRACE_SETREGS
+
+读写“通用寄存器快照”。在 `gdb` 中对应 `register read/write` 子命令。
+
+用户态调用模型：
+1. tracee 停在 traced-stop（一般来自断点/单步/信号）
+2. tracer `PTRACE_GETREGS` 拉取寄存器结构体
+3. 如需修改，改完后 `PTRACE_SETREGS` 写回
+4. `PTRACE_CONT`/`PTRACE_SINGLESTEP` 继续运行
+
+内核侧主要路径：
+```c
+kernel/ptrace.c: SYSCALL_DEFINE4(ptrace, ...) => ptrace_request(...)
+  case PTRACE_GETREGS:
+  case PTRACE_SETREGS:
+    arch_ptrace(request, child, addr, data);
+```
+寄存器格式是架构相关的：x86_64 是 `user_regs_struct`；arm64 更推荐用 `GETREGSET/SETREGSET`（见下）。
+
+### PTRACE_GETREGSET / PTRACE_SETREGSET
+
+更通用/可扩展的寄存器访问接口，配合 `addr = (void*)NT_*` 指定寄存器集类型，`data` 指向 `struct iovec`。
+在 `gdb` 里常见的用法：
+- `NT_PRSTATUS`：通用寄存器（含 PC/SP 等）
+- `NT_ARM_HW_BREAK`：arm64 硬件断点寄存器集
+
+用户态调用模型：
+1. 准备 `iovec { .iov_base = buf, .iov_len = len }`
+2. `ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov)` 读取
+3. 修改 `buf` 后 `ptrace(PTRACE_SETREGSET, pid, NT_PRSTATUS, &iov)` 写回
+
+内核侧主要路径（抽象层次）：
+```c
+kernel/ptrace.c: SYSCALL_DEFINE4(ptrace, ...) => ptrace_request(...)
+  case PTRACE_GETREGSET:
+  case PTRACE_SETREGSET:
+    ptrace_regset(child, request, addr /* NT_* */, data /* iovec */);
+      -> regset = task_user_regset_view(child)->regsets[...]
+      -> regset->get()/set()
+```
+
+### PTRACE_PEEKDATA / PTRACE_POKEDATA
+
+按“一个 machine word”读写 tracee 的虚拟内存，是软件断点（写 `int3/0xCC`）和 `memory read/write` 的基础。
+
+用户态调用模型：
+1. `word = ptrace(PTRACE_PEEKDATA, pid, addr, 0)` 读取
+2. 修改目标字节（例如把最低字节改成 `0xCC`）
+3. `ptrace(PTRACE_POKEDATA, pid, addr, word)` 写回
+
+内核侧主要路径（抽象层次）：
+```c
+kernel/ptrace.c: SYSCALL_DEFINE4(ptrace, ...) => ptrace_request(...)
+  case PTRACE_PEEKDATA:
+  case PTRACE_POKEDATA:
+    ptrace_peekdata/ptrace_pokedata(...)
+      -> access_process_vm(child, addr, buf, len, flags);
+```
+常见现象：
+- 地址无效/不可访问时，容易在用户态看到 `EIO`
+- 软件断点触发时，x86_64 的 `RIP` 会停在 “断点地址 + 1”，所以调试器一般要做 `pc-1` 校正
+
+### PTRACE_POKEUSER
+
+写 tracee 的 “user area” 中的字段（不同架构含义不同）。在 `gdb` 的硬件断点实现里，x86_64 常用它来写 DR0-DR3/DR7 这样的调试寄存器映射。
+
+内核侧主要路径（抽象层次）：
+```c
+kernel/ptrace.c: SYSCALL_DEFINE4(ptrace, ...) => ptrace_request(...)
+  case PTRACE_POKEUSER:
+    arch_ptrace(request, child, addr, data);
+```
+是否允许写、写到哪里、如何落到真实硬件寄存器，基本都在架构代码里做校验与转换。
