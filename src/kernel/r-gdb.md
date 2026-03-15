@@ -2,6 +2,8 @@
 
 A gdb write in Rust,  Inspired By https://tartanllama.xyz/posts/writing-a-linux-debugger/setup/ .
 
+my project: <https://github.com/fkcrazy001/rgdb.git>s
+
 ## GOALS: 
 
 从文章中继承，后续看情况会不会新增
