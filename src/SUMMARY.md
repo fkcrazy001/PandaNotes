@@ -12,6 +12,7 @@
   - [dpdk router](./high_performance_network/dpdk_router.md)
   - [rrdma](./high_performance_network/rrdma.md)
   - [rdma](./high_performance_network/rdma.md)
+  - [dpdk](./high_performance_network/dpdk/dpdk.md)
 
 - [kernel](kernel/dive_into_kernel.md)
   - [rgdb](kernel/r-gdb.md)

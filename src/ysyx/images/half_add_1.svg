@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="130" version="1.1" viewBox="0 0 393 130" width="393">
+   <path d="M269,100 H309" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M289,30 H309" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M119,40 V80 H219" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <circle cx="119" cy="40" fill="#000000" r="5" stroke="none" stroke-width="3"/>
+   <circle cx="89" cy="20" fill="#000000" r="5" stroke="none" stroke-width="3"/>
+   <path d="M20,31 H44 L54,40 L44,49 H20 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="25" y="47">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="5" y="48">B</text>
+   <circle cx="59" cy="40" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M54,20 H89" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M20,11 H44 L54,20 L44,29 H20 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="25" y="27">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="6" y="28">A</text>
+   <circle cx="59" cy="20" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M244,125 A25,25 90 0,0 244,75" fill="none" stroke="#000000" stroke-width="2"/>
+   <path d="M244,75 H220 V125 H244" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M313,100 H310" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M315,91 H339 L349,100 L339,109 H315 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="315" y="107">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="351" y="108">Cout</text>
+   <circle cx="309" cy="100" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M313,30 H310" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M315,21 H339 L349,30 L339,39 H315 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="315" y="37">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="351" y="38">S</text>
+   <circle cx="309" cy="30" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M229,10 H179 V20 H89 V120 H219" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M54,40 H179 V50 H229" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M289,30 Q269,5 239,5 Q252,30 239,55 Q269,55 289,30 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M229,5 Q242,30 229,55" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+</svg>

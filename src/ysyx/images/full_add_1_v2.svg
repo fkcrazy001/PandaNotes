@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="212" version="1.1" viewBox="0 0 817 212" width="817">
+   <path d="M683,16 H733" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M313,76 H383 V176 H473" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M683,36 V96 H403 V156 H473" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M693,156 H733" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M463,36 H383 V56 H313" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="93" y="55"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="108" y="60">A</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="93" y="75"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="108" y="80">B</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="303" y="55"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="290" y="60">S</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="303" y="75"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="272" y="80">Cout</text>
+   <rect fill="#000000" height="20" stroke="none" stroke-linecap="square" stroke-width="1" width="200" x="103" y="86"/>
+   <rect fill="none" height="60" stroke="#000000" stroke-linecap="square" stroke-width="2" width="200" x="103" y="46"/>
+   <text fill="#FFFFFF" font-family="Dialog" font-size="14" font-weight="bold" x="173" y="100">half_add</text>
+   <circle cx="93" cy="56" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="93" cy="76" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="313" cy="56" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="313" cy="76" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="463" y="15"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="478" y="20">A</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="463" y="35"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="478" y="40">B</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="673" y="15"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="660" y="20">S</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="673" y="35"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="642" y="40">Cout</text>
+   <rect fill="#000000" height="20" stroke="none" stroke-linecap="square" stroke-width="1" width="200" x="473" y="46"/>
+   <rect fill="none" height="60" stroke="#000000" stroke-linecap="square" stroke-width="2" width="200" x="473" y="6"/>
+   <text fill="#FFFFFF" font-family="Dialog" font-size="14" font-weight="bold" x="543" y="60">half_add</text>
+   <circle cx="463" cy="16" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="463" cy="36" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="683" cy="16" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="683" cy="36" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <path d="M68,56 H93" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M34,47 H58 L68,56 L58,65 H34 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="39" y="63">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="20" y="64">A</text>
+   <circle cx="73" cy="56" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M68,76 H93" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M34,67 H58 L68,76 L58,85 H34 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="39" y="83">x1</text>
+   <circle cx="73" cy="76" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M68,16 H463" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M34,7 H58 L68,16 L58,25 H34 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="39" y="23">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="5" y="24">Cin</text>
+   <circle cx="73" cy="16" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="473" y="155"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="488" y="160">A</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="473" y="175"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="488" y="180">B</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="683" y="155"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="670" y="160">S</text>
+   <rect fill="#000000" height="3" stroke="none" stroke-linecap="square" stroke-width="1" width="10" x="683" y="175"/>
+   <text fill="#404040" font-family="Dialog" font-size="12" x="652" y="180">Cout</text>
+   <rect fill="#000000" height="20" stroke="none" stroke-linecap="square" stroke-width="1" width="200" x="483" y="186"/>
+   <rect fill="none" height="60" stroke="#000000" stroke-linecap="square" stroke-width="2" width="200" x="483" y="146"/>
+   <text fill="#FFFFFF" font-family="Dialog" font-size="14" font-weight="bold" x="553" y="200">half_add</text>
+   <circle cx="473" cy="156" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="473" cy="176" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="693" cy="156" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <circle cx="693" cy="176" fill="#000000" r="2" stroke="none" stroke-width="1"/>
+   <path d="M737,16 H734" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M739,7 H763 L773,16 L763,25 H739 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="739" y="23">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="775" y="24">S</text>
+   <circle cx="733" cy="16" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M737,156 H734" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M739,147 H763 L773,156 L763,165 H739 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="739" y="163">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="775" y="164">Cout</text>
+   <circle cx="733" cy="156" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+</svg>
