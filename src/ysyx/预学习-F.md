@@ -376,7 +376,7 @@ Cout = (A&B) | (B&Cin) | (A&Cin)
 
 搭建如下：
 
-![full_add_1](./images/full_add_1.svg)
+![full_add_1](./images/full_add_1.png)
 
 ###### 用1位半加器搭建1位全加器
 
@@ -397,3 +397,7 @@ Cout = (A&B) | (B&Cin) | (A&Cin)
 ##### 搭建4位全加器和校验
 
 ![full_add_4](./images/full_add_4.svg)
+
+
+### 整数的机器码表示
+
