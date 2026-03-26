@@ -434,5 +434,5 @@ bout = (~A1 & ~a0 & bin) |  (~A1 & a0 & ~bin) | (~A1 & a0 & bin) | (A1 & a0 & bi
 
 验证如图：
 
-0x8 - 0x9 = 0xf, borrow 1
+0x2 - 0x3 = 0xf, borrow 1
 ![borrow1](./images/8_sub_9.png)
