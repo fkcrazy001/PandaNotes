@@ -13,6 +13,8 @@
   - [rrdma](./high_performance_network/rrdma.md)
   - [rdma](./high_performance_network/rdma.md)
   - [dpdk](./high_performance_network/dpdk/dpdk.md)
+    - [lpm算法](./high_performance_network/dpdk/lpm.md)
+    - [mlx5驱动](./high_performance_network/dpdk/mlx5_core.md)
 
 - [kernel](kernel/dive_into_kernel.md)
   - [rgdb](kernel/r-gdb.md)
@@ -41,3 +43,4 @@
   - [Floyd 算法](./algorithm/Floyd算法.md)
   - [dijkstra算法](./algorithm/dijkstra.md)
   - [DSU & kruskal](./algorithm/DSU.md)
+  - [模逆元](./algorithm/inverse.md)
