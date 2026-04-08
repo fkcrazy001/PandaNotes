@@ -29,13 +29,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      MDBOOK_VERSION: 0.5.2
     steps:
       - uses: actions/checkout@v4
       - name: Install mdBook and deps
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
-          cargo install mdbook
+          cargo install mdbook --version ${MDBOOK_VERSION}
           cargo install mdbook-mermaid
       - name: Setup Pages
         id: pages
