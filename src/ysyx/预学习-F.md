@@ -546,3 +546,125 @@ oscillation apparent:
 
 就是说，S 和 R 同时为1的情况就不存在了。自然 11 到 00 的跳变也不会存在。
 
+真值表如下：
+
+
+| WE | D | Q | 
+| --- | --- | --- |
+| 0 | x | hold |
+| 1 | 1 | 1 |
+| 1 | 0 | 0 |
+
+#### 搭建D锁存器
+
+![dlatch](./images/dlatch.svg)
+
+#### 带复位功能的D锁存器
+
+这个reset是低电平有效的
+
+![dlatch_ret](./images/dlatch_reset.svg)
+
+#### 用D锁存器实现位翻转功能
+
+D = ~D, 在输入没有变化的时候，输出一直在反转，所以仿真程序认为出现了震荡。
+
+
+#### D 触发器
+
+![DTriger](./images/DTriger.svg)
+
+#### 带复位功能的D触发器
+
+将主和子锁存器的Reset连接到Reset信号就可以了
+
+![DTriger_R](./images/DTriger_r.svg)
+
+#### D触发器实现位翻转功能
+
+![DtrigerReverse](./images/Dtriger_reverse.png)
+
+#### 下降沿触发的D触发器
+
+有下面两种方式：
+
+1. 主锁存器的CLK信号输入不取反，子锁存器的CLK信号取反
+2. 将上升沿的D触发器的CLK信号取反
+
+#### 搭建带使能端的D触发器
+
+想法是对CLK进行一次 与 操作，就是当 EN 为0时，CLK的变化被忽略。
+
+![DT_En](./images/DT_EN.svg)
+
+
+#### 4位寄存器
+
+![r4b](./images/Register_4b.svg)
+
+验证如下： 输入的值不会马上生效，必须等到按一下button才会显示在数码管上。
+
+![r4b_v](./images/Regiter4bV.png)
+
+#### 搭建4位计数器
+
+想法是这样的： 每一个 clk 来的时候，v = v + 1。 也就是说，当clk来的时候，寄存器将上一次求和的值刷新到新的Q，然后把这个Q+1作为输入，等待下一次的时钟。
+
+如下：
+![4bc](./images/4bc.svg)
+
+验证如下：
+![4bc_v](./images/4bc_v.png)
+
+#### 设计数列求和电路
+>先前设计的修改
+>1. 发现先前设计的sr寄存器有概率仿真开始的时候就出现震荡，所以我在R加了一个 POR 信号。这样就稳定多了
+>2. 扩展了8位寄存器和8位全加器
+>3. 修正 DLatch, En信号不应该直接与 CLK 信号进行 &，应该与 非/和原始信号分别 &
+
+设计如下：
+
+1. 加数从0开始递增，每一个clock递增1
+2. sum初始值为0，每一个clock与加数进行相加
+3. 时钟产生10个tick后，输出结果
+
+![array_sum](./images/arraySum.svg)
+
+验证如下： 输出 1+2+3+...+10 = 0x37
+
+![array_sum](./images/arraySum_v.png)
+
+#### 实现电子时钟
+
+想法如下：
+
+1. 2个8位累加器 分别代表 秒和分
+2. 设计8位比较器
+3. 秒累加器的输出等与60时，产生一次分的clk，让分累加器 +1，然后将秒累加器的输出复位
+4. 分累加器的输出等与60时，将分累加器的输出复位
+
+实现如下：
+
+![e_clock](./images/eclock.svg)
+
+验证如下：
+
+![e_clock](./images/eclock_v.png)
+
+note: 为了方便，我这里没有做10分的显示，用了两个16进制的显示。
+
+attention: 
+
+加了复位电路也没有办法完全解决震荡问题，我的版本如下：
+```txt
+Product: Logisim-evolution v4.1.0
+Runs on: Java HotSpot(TM) 64-Bit Server VM v25.0.2
+
+Compiled: 2026-02-15T09:21:41+0100
+Build ID: main/632d66dc
+Built on: Java HotSpot(TM) 64-Bit Server VM v25.0.2
+```
+
+问了ai，建议是使用内置的srlatch，我单步调试过，貌似目前每一步会吧Q或者～Q的状态置为不确定，然后反复进行计算。
+
+用当前我的电路时，只会在摆电路的时候出现震荡，如果有的话，复位再重新仿真，就不会出现问题。
