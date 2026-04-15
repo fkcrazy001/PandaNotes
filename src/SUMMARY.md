@@ -15,6 +15,7 @@
   - [dpdk](./high_performance_network/dpdk/dpdk.md)
     - [lpm算法](./high_performance_network/dpdk/lpm.md)
     - [mlx5驱动](./high_performance_network/dpdk/mlx5_core.md)
+  - [debug_iptables](./high_performance_network/debug_iptables.md)
 
 - [kernel](kernel/dive_into_kernel.md)
   - [rgdb](kernel/r-gdb.md)
