@@ -21,6 +21,7 @@
 - [kernel](kernel/dive_into_kernel.md)
   - [rgdb](kernel/r-gdb.md)
   - [syscall](kernel/syscall.md)
+  - [Dynamic_Loader_In_Rust](kernel/DLRoost.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
