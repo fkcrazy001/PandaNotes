@@ -5,6 +5,7 @@
   - [预学习](./ysyx/预学习-F.md)
   - [F.4](./ysyx/F.4.md)
   - [F.5](./ysyx/F.5.md)
+  - [F.6](./ysyx/F.6.md)
 
 - [高性能网络](./high_performance_network/network.md)
   - [tcpdump architecture](./high_performance_network/tcpdump-architecture.md)
