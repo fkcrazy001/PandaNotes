@@ -1,3 +1,6 @@
 book
 *.DS_Store
 *.pptx
+*.bin
+
+logisim-bin*
