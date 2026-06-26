@@ -67,3 +67,4 @@
   - [模逆元](./algorithm/inverse.md)
   - [ST表](./algorithm/st-table.md)
   - [fastpow](./algorithm/fast_pow.md)
+  - [树状数组](./algorithm/tree-like-array.md)
