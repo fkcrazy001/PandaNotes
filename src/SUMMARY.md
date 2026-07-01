@@ -40,6 +40,9 @@
   - [Dynamic_Loader_In_Rust](kernel/DLRoost.md)
   - [ebpf](./kernel/ebpf.md)
     - [map](./kernel/ebpf_map.md)
+  - [gpu](kernel/gpu.md)
+    - [bochs](./kernel/bochs_driver.md)
+    - [drm](./kernel/drm.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
