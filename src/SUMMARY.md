@@ -42,6 +42,7 @@
     - [map](./kernel/ebpf_map.md)
   - [gpu](kernel/gpu.md)
     - [bochs](./kernel/bochs_driver.md)
+      - [ans](./kernel/bochs_driver_answer.md)
     - [drm](./kernel/drm.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
