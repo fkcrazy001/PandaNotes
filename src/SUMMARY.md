@@ -43,7 +43,10 @@
   - [gpu](kernel/gpu.md)
     - [bochs](./kernel/bochs_driver.md)
       - [ans](./kernel/bochs_driver_answer.md)
+    - [virtio-gpu](./kernel/virtio_gpu.md)
     - [drm](./kernel/drm.md)
+  -[virito](./kernel/virtio.md)
+    - [virtio-pci](./kernel/virtio-pci.md)
 
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
