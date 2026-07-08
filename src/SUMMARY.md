@@ -54,6 +54,7 @@
   - [gpu_in_qemu](./virtualization/gpu_in_qemu.md)
   - [k230_on_qemu](./virtualization/k230.md)
   - [vm_write_in_rust](./virtualization/my_vm.md)
+  - [vfio](./virtualization/vfio.md)
 
 
 - [ai-tech](./llm/ai_tech.md)
