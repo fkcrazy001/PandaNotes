@@ -40,6 +40,7 @@
   - [Dynamic_Loader_In_Rust](kernel/DLRoost.md)
   - [ebpf](./kernel/ebpf.md)
     - [map](./kernel/ebpf_map.md)
+    - [kernel_tracker](./kernel/tracker.md)
   - [gpu](kernel/gpu.md)
     - [bochs](./kernel/bochs_driver.md)
       - [ans](./kernel/bochs_driver_answer.md)
