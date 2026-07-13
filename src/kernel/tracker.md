@@ -112,6 +112,4 @@ run loop 就是收集信息，然后展示出来。
 
 - kprobe/filemap_read: 当文件被read时，会触发这个 kprobe 
 
-### 
-
 ## rust 重构版本
