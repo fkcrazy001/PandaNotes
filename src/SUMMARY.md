@@ -49,6 +49,9 @@
   -[virito](./kernel/virtio.md)
     - [virtio-pci](./kernel/virtio-pci.md)
 
+- [k8s](./k8s/k8s.md)
+  - [cni](./k8s/cni.md)
+
 - [虚拟化技术](./virtualization/virtualization.md)
   - [tcg](./virtualization/tcg.md)
   - [rust_vmm](./virtualization/rust_vmm.md)
